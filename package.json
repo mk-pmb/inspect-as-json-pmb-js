@@ -1,0 +1,30 @@
+{ "name": "inspect-as-json-pmb",
+  "version": "0.1.0",
+  "description": "JSON.stringify with aspects of util.inspect and some default converters.",
+  "keywords": [ "inspect", "json" ],
+
+  "author": "M.K. (https://github.com/mk-pmb)",
+  "homepage": "https://github.com/mk-pmb/inspect-as-json-pmb-js#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mk-pmb/inspect-as-json-pmb-js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mk-pmb/inspect-as-json-pmb-js/issues"
+  },
+
+  "private": false, "license": "ISC",
+
+  "main": "ji.js",
+  "scripts": { "test": "nodejs test/all.js" },
+  "directories": { "test": "test" },
+
+  "dependencies": {},
+  "devDependencies": {
+    "equal-pmb": "^0.1.10",
+    "usnam-pmb": "^0.2.3"
+  },
+
+
+  "npm vs. BOM = Unexpected token": "-*- coding: UTF-8 -*-"
+}
