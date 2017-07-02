@@ -3,13 +3,10 @@
 'use strict';
 
 require('usnam-pmb');
-var eq = require('equal-pmb'), knownGood;
+var eq = require('equal-pmb'),
+  rrfs = require('read-resolved-file-sync')(require),
+  knownGood = rrfs.frag('./expect/usage.json');
 
-knownGood = (function () {
-  var kg = require('read-resolved-file-sync')(require
-    )('./expect/usage.json').split(/\n,"(\S*)",\s/);
-  return function (s) { return (kg[kg.indexOf(s) + 1] || false); };
-}());
 
 (function readmeDemo(expectEqual) {
   //#u

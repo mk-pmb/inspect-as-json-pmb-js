@@ -1,5 +1,5 @@
 { "name": "inspect-as-json-pmb",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "JSON.stringify with aspects of util.inspect and some default converters.",
   "keywords": [ "inspect", "json" ],
 
@@ -22,6 +22,7 @@
   "dependencies": {},
   "devDependencies": {
     "equal-pmb": "^0.1.10",
+    "read-resolved-file-sync": "^1.0.1",
     "usnam-pmb": "^0.2.3"
   },
 
