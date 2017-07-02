@@ -3,51 +3,41 @@
 'use strict';
 
 require('usnam-pmb');
-var eq = require('equal-pmb');
+var eq = require('equal-pmb'), knownGood;
+
+knownGood = (function () {
+  var kg = require('read-resolved-file-sync')(require
+    )('./expect/usage.json').split(/\n,"(\S*)",\s/);
+  return function (s) { return (kg[kg.indexOf(s) + 1] || false); };
+}());
 
 (function readmeDemo(expectEqual) {
   //#u
-  var inspectAsJSON = require('inspect-as-json-pmb'), words, obj;
+  var inspectAsJSON = require('inspect-as-json-pmb'), words, obj, dump;
 
   words = String(inspectAsJSON).match(/\b[a-z]{6,}/g);
-  expectEqual.lines(inspectAsJSON(words, { maxKeys: 7 }), [
-    '[ "function",',
-    '  "inspect",',
-    '  "stringify",',
-    '  "function",',
-    '  "(… +8 …)",',
-    '  "replace",',
-    '  "replace",',
-    '  "return"',
-    ']',
-    '']);
+  dump = inspectAsJSON(words, { maxKeys: 7 });
+  expectEqual.lines(dump, knownGood('words'));
 
-  obj = { words: words, wordEnds: {},
-    learn: function foo(w) { obj.wordEnds[w.slice(0, 2)] = w.slice(-2); },
-    };
+  obj = {
+    words: words,
+    ellipPosTest: {
+      letterKeys: {},
+      digitKeys: {},
+      alnumKeys: {},
+    },
+    learn: function foo(w, i) {
+      var et = obj.ellipPosTest;
+      // test proper ellipsis position for several types of keys:
+      et.letterKeys[w.slice(0, 3)] = w.slice(-2);
+      et.digitKeys[i] = w.slice(0, 2);
+      et.alnumKeys[w[0] + i] = i;
+    },
+  };
   obj.anonFunc = function () { return; };
   words.forEach(obj.learn);
-  expectEqual.lines(inspectAsJSON(obj, { maxKeys: 5 }), [
-    '{ "words": [',
-    '    "function",',
-    '    "inspect",',
-    '    "stringify",',
-    '    "(… +10 …)",',
-    '    "replace",',
-    '    "return"',
-    '  ],',
-    '  "wordEnds": {',
-    '    "fu": "on",',
-    '    "in": "ct",',
-    '    "st": "fy",',
-    '    "(…)": "(… +1 …)",',
-    '    "re": "rn",',
-    '    "ob": "ct"',
-    '  },',
-    '  "learn": { "ƒunc": "foo" },',
-    '  "anonFunc": { "ƒunc": null }',
-    '}',
-    '']);
+  dump = inspectAsJSON(obj, { maxKeys: 5 });
+  expectEqual.lines(dump, knownGood('obj'));
   //#r
 }(eq));
 

@@ -32,13 +32,13 @@ EX.makeObjEllip = function (l) {
   var h = Math.ceil(l / 2), t = l - h;
   return function (o) {
     var k = (isAry(o) ? 0 : Object.keys(o)), n = (k || o).length, r;
-    if (n <= l) { return o; }
+    if (l > n) { return o; }
     n = '(… +' + (n - l) + ' …)';
     if (!k) { return o.slice(0, h).concat([ n ]).concat(o.slice(-t)); }
     r = {};
     function c(p) { r[p] = o[p]; }
     k.slice(0, h).forEach(c);
-    r['(…)'] = n;
+    r[k[h]] = n;
     k.slice(-t).forEach(c);
     return r;
   };

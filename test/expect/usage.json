@@ -1,0 +1,52 @@
+﻿[ null
+
+,"words",
+[ "function",
+  "inspect",
+  "stringify",
+  "function",
+  "(… +8 …)",
+  "replace",
+  "replace",
+  "return"
+]
+
+,"obj",
+{ "words": [
+    "function",
+    "inspect",
+    "stringify",
+    "(… +10 …)",
+    "replace",
+    "return"
+  ],
+  "ellipPosTest": {
+    "letterKeys": {
+      "fun": "on",
+      "ins": "ct",
+      "str": "fy",
+      "typ": "(… +2 …)",
+      "obj": "ct",
+      "rep": "ce"
+    },
+    "digitKeys": {
+      "0": "fu",
+      "1": "in",
+      "2": "st",
+      "3": "(… +10 …)",
+      "13": "re",
+      "14": "re"
+    },
+    "alnumKeys": {
+      "f0": 0,
+      "i1": 1,
+      "s2": 2,
+      "f3": "(… +10 …)",
+      "r13": 13,
+      "r14": 14
+    } },
+  "learn": { "ƒunc": "foo" },
+  "anonFunc": { "ƒunc": null }
+}
+
+,"", null ]
