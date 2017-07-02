@@ -22,9 +22,7 @@ EX = function inspectAsJSON(x, opt) {
 };
 
 
-EX.mergeSpace2 = function (m, a, b) {
-  return (m && a) + b.replace(/\s+/g, ' ');
-};
+EX.mergeSpace2 = function (m, a, b) { return a + b.replace(/\s+/g, ' ', m); };
 
 
 EX.makeObjEllip = function (l) {
