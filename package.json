@@ -1,5 +1,5 @@
 { "name": "inspect-as-json-pmb",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "JSON.stringify with aspects of util.inspect and some default converters.",
   "keywords": [ "inspect", "json" ],
 

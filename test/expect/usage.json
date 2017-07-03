@@ -4,8 +4,8 @@
 [ [ [
       [ 1,
         2,
-        3
-      ] ] ] ]
+        3 ]
+    ] ] ]
 
 ,"§deep_array:empty",
 [ [ [
@@ -17,21 +17,19 @@
   "inspect",
   "stringify",
   "function",
-  "(… +8 …)",
+  "(… +9 …)",
   "replace",
   "replace",
-  "return"
-]
+  "return" ]
 
 ,"§obj",
 { "words": [
     "function",
     "inspect",
     "stringify",
-    "(… +10 …)",
+    "(… +11 …)",
     "replace",
-    "return"
-  ],
+    "return" ],
   "ellipPosTest": {
     "letterKeys": {
       "fun": "on",
@@ -39,24 +37,22 @@
       "str": "fy",
       "typ": "(… +2 …)",
       "obj": "ct",
-      "rep": "ce"
-    },
+      "rep": "ce" },
     "digitKeys": {
       "0": "fu",
       "1": "in",
       "2": "st",
-      "3": "(… +10 …)",
-      "13": "re",
-      "14": "re"
-    },
+      "3": "(… +11 …)",
+      "14": "re",
+      "15": "re" },
     "alnumKeys": {
       "f0": 0,
       "i1": 1,
       "s2": 2,
-      "f3": "(… +10 …)",
-      "r13": 13,
-      "r14": 14
-    } },
+      "f3": "(… +11 …)",
+      "r14": 14,
+      "r15": 15 }
+  },
   "learn": { "ƒunc": "foo" },
   "anonFunc": { "ƒunc": null }
 }

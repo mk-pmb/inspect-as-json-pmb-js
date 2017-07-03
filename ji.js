@@ -23,6 +23,7 @@ EX = function inspectAsJSON(x, opt) {
   x = x.replace(/()(\x5B(?:\n *\x5B)+)(?=\n *\x5B)/g, EX.mergeSpace2);
 
   // fold space before closing brackets:
+  x = x.replace(/([!-Z_-z])(\n *[\x5D\x7D])/g, EX.mergeSpace2);
   x = x.replace(/(\n *)([\x5D\x7D](?:\s*[\x5D\x7D])+)/g, EX.mergeSpace2);
   return x + '\n';
 };
