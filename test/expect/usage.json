@@ -1,5 +1,17 @@
 ﻿[ null
 
+,"§deep_array:123",
+[ [ [
+      [ 1,
+        2,
+        3
+      ] ] ] ]
+
+,"§deep_array:empty",
+[ [ [
+      []
+    ] ] ]
+
 ,"§words",
 [ "function",
   "inspect",

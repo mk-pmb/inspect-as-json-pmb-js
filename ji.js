@@ -15,8 +15,14 @@ EX = function inspectAsJSON(x, opt) {
     return v;
   }, 2);
   x = x.replace(/()(\{\n\s*"ƒunc":[ -~]+\n *\})/g, EX.mergeSpace2);
-  x = x.replace(/()([\x5B\x7B]\n(?:\s*[\x5B\x7B])+)/g, EX.mergeSpace2);
-  x = x.replace(/(^|\n *)([\x5B\x7B]\n *)/g, EX.mergeSpace2);
+
+  // fold space before first non-bracket in a container:
+  x = x.replace(/(^|\n *)([\x5B\x7B]\n *)(?=[!-Z_-z])/g, EX.mergeSpace2);
+
+  // merge space between multiple opening array brackets:
+  x = x.replace(/()(\x5B(?:\n *\x5B)+)(?=\n *\x5B)/g, EX.mergeSpace2);
+
+  // fold space before closing brackets:
   x = x.replace(/(\n *)([\x5D\x7D](?:\s*[\x5D\x7D])+)/g, EX.mergeSpace2);
   return x + '\n';
 };

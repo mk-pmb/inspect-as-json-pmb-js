@@ -12,7 +12,16 @@ var eq = require('equal-pmb'),
   //#u
   var inspectAsJSON = require('inspect-as-json-pmb'), words, obj, dump;
 
-  words = String(inspectAsJSON).match(/\b[a-z]{6,}/g);
+  obj = [[[[ 1, 2, 3 ]]]];
+  dump = inspectAsJSON(obj);
+  expectEqual.lines(dump, knownGood('deep_array:123'));
+
+  obj = [[[[ ]]]];
+  dump = inspectAsJSON(obj);
+  expectEqual.lines(dump, knownGood('deep_array:empty'));
+
+  words = String(inspectAsJSON).replace(/\n *\/{2}[ -~]+/g,
+    '').match(/\b[a-z]{6,}/g);
   dump = inspectAsJSON(words, { maxKeys: 7 });
   expectEqual.lines(dump, knownGood('words'));
 
